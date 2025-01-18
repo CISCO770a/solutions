@@ -9,7 +9,9 @@ void main() {
   //sumOfNumberDivisors;
   //getPerfectNumber;
   //getSquareFreeNumber;
-  swapValues;
+  // swapValues;
+  //factorialOfNumber;
+  guessFuckenNumber;
 }
 // Lap 6 - Topic 5
 
@@ -196,3 +198,47 @@ void get swapValues {
 
 // P11
 
+void get factorialOfNumber {
+  stdout.writeln("Enter number to get factorial =>");
+  String inputNumber = stdin.readLineSync() as String;
+
+  int number = int.parse(inputNumber);
+
+  int factorial = number;
+  number--;
+
+  for (number; number > 1; number--) {
+    factorial *= number;
+  }
+
+  print("Factorial: $factorial");
+}
+
+// P12
+
+void get guessFuckenNumber {
+  Random random = new Random();
+
+  int randomNumber = random.nextInt(10);
+
+  print(randomNumber);
+
+  int userScore = 0;
+
+  for (int i = 0; i < 5; i++) {
+    stdout.writeln("Enter a Fucken number => ");
+    String inputNumber = stdin.readLineSync() as String;
+
+    int number = int.parse(inputNumber);
+    bool isCorrectGuess = number == randomNumber;
+
+    if (isCorrectGuess) {
+      userScore += 10;
+      print("You Got it !! Your current Score is :$userScore");
+      break;
+    } else {
+      userScore -= 1;
+      print("Go Fuck yourself you son of a Bitch, your score is : $userScore");
+    }
+  }
+}
